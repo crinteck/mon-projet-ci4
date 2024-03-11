@@ -41,7 +41,7 @@ class Auth extends BaseController
                 'email'=>$user->email
             ]);
 
-            return redirect()->to(base_url('users/profil'))->with('success', 'Connexion reussie');
+            return redirect()->to(base_url('dashboard'))->with('success', 'Connexion reussie');
            
         }
 

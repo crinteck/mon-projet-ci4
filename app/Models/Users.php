@@ -17,6 +17,7 @@ class Users extends Model
         'first_name',
         'email',
         'password',
+        'image'
     ];
 
     // Dates

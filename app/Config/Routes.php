@@ -14,7 +14,7 @@ $routes->group('auth', function (RouteCollection $routes) {
 });
 
 $routes->group('users', ['filter' => 'authFilter'], function (RouteCollection $routes) {
-    $routes->get('profil', 'Users::profil');
+    $routes->match(['get', 'post'],'profil', 'Users::profil');
 });
 
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'authFilter']);

@@ -586,6 +586,10 @@ video {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -610,6 +614,10 @@ video {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -629,6 +637,22 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.\!p-2 {
+  padding: 0.5rem !important;
+}
+
+.\!p-5 {
+  padding: 1.25rem !important;
+}
+
+.\!p-10 {
+  padding: 2.5rem !important;
 }
 
 .text-center {

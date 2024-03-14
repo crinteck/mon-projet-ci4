@@ -28,6 +28,7 @@ abstract class BaseController extends Controller
      */
     protected $request;
     protected $session;
+    protected $data = [];
 
     /**
      * An array of helpers to be loaded automatically upon

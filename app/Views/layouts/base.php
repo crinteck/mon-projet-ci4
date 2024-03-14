@@ -104,7 +104,7 @@
     <!-- top nav -->
 
     <div class="pusher">
-        <div class="main-content">
+        <div class="main-content" style="padding: 15px;">
 
             <?= $this->renderSection('content') ?>
 

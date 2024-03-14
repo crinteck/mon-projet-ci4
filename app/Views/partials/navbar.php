@@ -13,10 +13,10 @@
             <i class="bell icon"></i>
         </a>
         <div class="ui dropdown item">
-            <i class="user cirlce icon"></i>
+        <img class="ui avatar image" src="<?= base_url('uploads/'.session('user.image')) ?>"/>
             <?= session('user.first_name').' '.session('user.last_name') ?>
             <div class="menu">
-                <a href="#" class="item">
+                <a href="<?= base_url('/users/profil') ?>" class="item">
                     <i class="info circle icon"></i> Profile</a>
                 <a href="#" class="item">
                     <i class="wrench icon"></i>

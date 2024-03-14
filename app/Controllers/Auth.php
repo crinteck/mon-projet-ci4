@@ -38,7 +38,8 @@ class Auth extends BaseController
                 'id'=>$user->id,
                 'last_name'=>$user->last_name,
                 'first_name'=>$user->first_name,
-                'email'=>$user->email
+                'email'=>$user->email,
+                'image'=>$user->image
             ]);
 
             return redirect()->to(base_url('dashboard'))->with('success', 'Connexion reussie');

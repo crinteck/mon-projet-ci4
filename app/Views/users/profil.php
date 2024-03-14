@@ -1,41 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layouts/base') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de connexion</title>
-    <link rel="stylesheet" href="<?= base_url('public/assets/semantic-ui/dist/semantic.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('public/assets/styles/output.css') ?>">
-</head>
+<?= $this->section('content') ?>
 
-<body class="bg-gray-100 min-[100vh] flex justify-center items-center">
+<div class="ui stackabble grid">
 
-<div class="ui centered card">
-    <div class="content">
-        <a class="ui dividing header">Profil</a>
-        <div class="description">
-            <div class="ui list">
-                <div class="item">
-                    Nom: <?= session()->get('user')['last_name'] ?>
-                </div>
-                <div class="item">
-                    Prénom: <?= session()->get('user')['first_name'] ?>
-                </div>
-                <div class="item">
-                    Email: <?= session()->get('user')['email'] ?>
-                </div>
+    <div class="four wide column">
+        <div class="ui segment">
+            <div class="ui message">
+                Dans cette page, vous pouvez modifier vos informations de profile et ajouter une image si vous le voulez.
             </div>
-
-            <a href="<?= base_url('auth/logout')?>" class="ui red fluid button">
-                Se deconnecter
-            </a>
         </div>
     </div>
+    <div class="twelve wide column">
+        <div class="ui segment">
+            <div class="ui dividing header">Mon profile</div>
+
+            <?php $errors = session()->getFlashdata('errors'); ?>
+            <?php $success = session()->getFlashdata('success'); ?>
+
+
+            <?php if ($errors) : ?>
+                <div class="ui error message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                        Erreur de validation
+                    </div>
+                    <ul class="list">
+                        <?php foreach ($errors as $error) : ?>
+                            <li><?= esc($error) ?></li>
+                        <?php endforeach; ?>
+
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <?php if ($success) : ?>
+                <div class="ui success message">
+                    <i class="close icon"></i>
+                    <div class="header">
+                       Message
+                    </div>
+                    <ul class="list">
+                        <?php foreach ($success as $succ) : ?>
+                            <li><?= esc($succ) ?></li>
+                        <?php endforeach; ?>
+
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="ui form">
+                    <div class="field">
+                        <label for="image">Image de profile</label>
+                        <input type="file" name="image" id="image" accept="image/*">
+                    </div>
+                    <div class="two fields required">
+                        <div class="field">
+                            <label for="first_name">Prénom</label>
+                            <input type="text" name="first_name" id="first_name" required value="<?= old('first_name', $user->first_name ?? '') ?>">
+                        </div>
+                        <div class="field">
+                            <label for="last_name">Prénom</label>
+                            <input type="text" name="last_name" id="last_name" required value="<?= old('last_name', $user->last_name ?? '') ?>">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <button type="submit" class="ui primary button">Enregistrer</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="<?= base_url('public/assets/semantic-ui/dist/semantic.min.js') ?>"></script>
-</body>
 
-</html>
+<?= $this->endSection() ?>

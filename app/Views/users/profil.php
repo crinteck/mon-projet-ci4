@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
 
-<div class="ui stackabble grid">
+<div class="ui stackabble grid" style="margin-top: 20px;">
 
     <div class="four wide column">
         <div class="ui segment">
@@ -17,7 +17,6 @@
 
             <?php $errors = session()->getFlashdata('errors'); ?>
             <?php $success = session()->getFlashdata('success'); ?>
-
 
             <?php if ($errors) : ?>
                 <div class="ui error message">
@@ -43,7 +42,6 @@
                         <?php foreach ($success as $succ) : ?>
                             <li><?= esc($succ) ?></li>
                         <?php endforeach; ?>
-
                     </ul>
                 </div>
             <?php endif; ?>
@@ -59,7 +57,7 @@
                             <input type="text" name="first_name" id="first_name" required value="<?= old('first_name', $user->first_name ?? '') ?>">
                         </div>
                         <div class="field">
-                            <label for="last_name">Prénom</label>
+                            <label for="last_name">Nom</label>
                             <input type="text" name="last_name" id="last_name" required value="<?= old('last_name', $user->last_name ?? '') ?>">
                         </div>
                     </div>

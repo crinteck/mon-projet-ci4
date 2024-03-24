@@ -46,6 +46,9 @@ class Users extends BaseController
                 return redirect()->back()->withInput()->with('errors', $userModel->errors());
             }
 
+            session()->set('user.last_name', $data['last_name']);
+            session()->set('user.first_name', $data['first_name']);
+
             return redirect()->back()->with('success', ['Vos informations ont bien été enregistrées']);
         }
         return view('users/profil', $this->data);

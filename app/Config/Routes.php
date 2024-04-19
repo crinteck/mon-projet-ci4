@@ -17,4 +17,4 @@ $routes->group('users', ['filter' => 'authFilter'], function (RouteCollection $r
     $routes->match(['get', 'post'],'profil', 'Users::profil');
 });
 
-$routes->get('dashboard', 'Dashboard::index', ['filter' => 'authFilter']);
+$routes->get('dashboard', 'Dashboard::index', ['filter' => 'authFilter:USER,ADMIN']);

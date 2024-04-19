@@ -27,8 +27,19 @@ class AuthFilter implements FilterInterface
     {
         $session = session();
 
-        if(!$session->get('user')){
+        if (!$session->get('user')) {
             return redirect()->to(base_url('auth/login'))->with('errors', ['auth' => 'Veuillez vous connecter']);
+        }
+
+        $argCount = count($arguments);
+
+        if ($argCount > 0) {
+            $userRole = $session->get('user.role');
+
+            if (!in_array($userRole, $arguments)) {
+                session()->destroy();
+                return redirect()->to(base_url("auth/login"))->with("error", "Vous n'estes pas autoriser à accéder à la page");
+            }
         }
     }
 

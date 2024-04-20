@@ -183,5 +183,20 @@
     </div>
 </div>
 
+<div class="ui grid">
+    <div class="sixteen wide column">
+        <div class="ui message">
+            <div class="content">
+                <div class="header">
+                    <?= lang('Translate.dashboard_welcome.title') ?>
+                </div>
+                <p>
+                    <?= lang('Translate.dashboard_welcome.message') ?>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <?= $this->endSection() ?>

@@ -19,7 +19,7 @@
         <div class="item">
             <div class="header">General</div>
             <div class="menu">
-                <a class="item">
+                <a href="<?=base_url($locale.'/dashboard')?>" class="item">
                     <div>
                         <i class="icon tachometer alternate"></i>
                         Dashboard

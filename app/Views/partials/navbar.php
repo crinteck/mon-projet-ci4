@@ -13,8 +13,19 @@
             <i class="bell icon"></i>
         </a>
         <div class="ui dropdown item">
-        <img class="ui avatar image" src="<?= base_url('uploads/'.session('user.image')) ?>"/>
-            <?= session('user.first_name').' '.session('user.last_name') ?>
+            Langages
+            <div class="menu">
+                <?php if (!empty($supportedLanguages)) : ?>
+                    <?php foreach ($supportedLanguages as $lang) : ?>
+                        <a class="item <?= $locale === $lang['locale'] ? 'active' : '' ?>" href="<?= base_url($lang['locale'] . '/' . getUriWithoutLocale()) ?>"><?= $lang['name'] ?></a>
+                    <?php endforeach ?>
+                <?php endif ?>
+
+            </div>
+        </div>
+        <div class="ui dropdown item">
+            <img class="ui avatar image" src="<?= base_url('uploads/' . session('user.image')) ?>" />
+            <?= session('user.first_name') . ' ' . session('user.last_name') ?>
             <div class="menu">
                 <a href="<?= base_url('/users/profil') ?>" class="item">
                     <i class="info circle icon"></i> Profile</a>
